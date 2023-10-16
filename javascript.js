@@ -1,7 +1,7 @@
 console.log("Hello World!");
-
 let choices = ['rock', 'paper', 'scissors'];
-let score = 0;
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];
@@ -10,22 +10,31 @@ function getComputerChoice() {
 function round() {
     let playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase();
     let computerSelection = getComputerChoice();
-    console.log(getComputerChoice());
+    console.log('Your Choice: ' + playerSelection)
+    console.log('Computer Choice: ' + getComputerChoice());
     
     if ((playerSelection === 'rock' && computerSelection ==='scissors')||(playerSelection === 'scissors' && computerSelection === 'paper')||(playerSelection === 'paper' && computerSelection === 'rock')) {
-        console.log("You Win!"), score++;
-        console.log(score)
+        console.log("You Win!"), playerScore++;
+        console.log('Your Score: '+ playerScore)
     } else if (playerSelection === computerSelection) {
         console.log("Tie!")
     }    else {
-        console.log('Keep working on it!');
+        console.log('You lose!'), computerScore++;
+        console.log('Computer Score: '+ computerScore);
     }
 }
 
+let lessThan5 = true;
+
 function game() {
-while (score < 5) {
-    round();
-}
+    while(lessThan5) {
+        if (playerScore < 5 && computerScore < 5) {
+            round()
+        }
+        else {
+            lessThan5 = false;
+        }
+    }
 }
 
 game()
