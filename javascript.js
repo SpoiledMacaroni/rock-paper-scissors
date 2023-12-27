@@ -1,14 +1,13 @@
 console.log("Hello World!");
-let choices = ['rock', 'paper', 'scissors'];
 let playerScore = 0;
 let computerScore = 0;
 
 function getComputerChoice() {
+    const choices = ['rock', 'paper', 'scissors'];
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
-function round() {
-    let playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase();
+function playRound(playerSelection) {
     let computerSelection = getComputerChoice();
     console.log('Your Choice: ' + playerSelection)
     console.log('Computer Choice: ' + getComputerChoice());
@@ -24,8 +23,9 @@ function round() {
     }
 }
 
+//This logic plays rounds until score hits 5.
+/*
 let lessThan5 = true;
-
 function game() {
     while(lessThan5) {
         if (playerScore < 5 && computerScore < 5) {
@@ -36,6 +36,5 @@ function game() {
         }
     }
 }
-
 game()
-
+*/
