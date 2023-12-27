@@ -6,6 +6,10 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
+function endGame() {
+
+}
+
 function playRound(playerSelection) {
     const computerSelection = getComputerChoice();
     const playerMove = document.querySelector('#playerMove');
@@ -23,12 +27,31 @@ function playRound(playerSelection) {
         showPlayerScore.textContent = 'Your Score: ' + playerScore;
     } else if (playerSelection === computerSelection) {
         showResult.textContent = 'Tie!';
-    }    else {
+    } else {
         computerScore++;
         showResult.textContent = 'You lose! Try again!';
         showComputerScore.textContent = 'Computer Score: ' + computerScore;
     }
+
+    if (playerScore >= 5) {
+    playerMove.textContent = "";
+    computerMove.textContent = "";
+    showPlayerScore.textContent = "";
+    showComputerScore.textContent = "";
+    showResult.textContent = "Congratulations! You won the match!";
+    playerScore = 0
+    computerScore = 0
+    } else if (computerScore >= 5) {
+        playerMove.textContent = "";
+        computerMove.textContent = "";
+        showPlayerScore.textContent = "";
+        showComputerScore.textContent = "";
+        showResult.textContent = "Sorry! You lost the match!";
+        playerScore = 0
+        computerScore = 0
+    }
 }
+
 
 //This logic plays rounds until score hits 5.
 /*
