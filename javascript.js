@@ -25,11 +25,13 @@ function playRound(playerSelection) {
         playerScore++;
         showResult.textContent = 'You Win!';
         showPlayerScore.textContent = 'Your Score: ' + playerScore;
+        showComputerScore.textContent = 'Computer Score: ' + computerScore;
     } else if (playerSelection === computerSelection) {
         showResult.textContent = 'Tie!';
     } else {
         computerScore++;
         showResult.textContent = 'You lose! Try again!';
+        showPlayerScore.textContent = 'Your Score: ' + playerScore;
         showComputerScore.textContent = 'Computer Score: ' + computerScore;
     }
 
