@@ -9,8 +9,17 @@ function getComputerChoice() {
 
 function playRound(playerSelection) {
     let computerSelection = getComputerChoice();
-    console.log('Your Choice: ' + playerSelection)
-    console.log('Computer Choice: ' + getComputerChoice());
+
+    //Updating the console.log display to a DOM event
+    //console.log('Your Choice: ' + playerSelection)
+    const playerMove = document.querySelector('#playerMove');
+    playerMove.textContent = 'Your Choice: ' + playerSelection;
+    //playerMove.appendChild(playerMove);
+    //console.log('Computer Choice: ' + getComputerChoice());
+
+    const computerMove = document.querySelector('#computerMove');
+    computerMove.textContent = 'Computer Choice: ' + computerSelection;
+    //computerMove.appendChild(computerMove);
     
     if ((playerSelection === 'rock' && computerSelection ==='scissors')||(playerSelection === 'scissors' && computerSelection === 'paper')||(playerSelection === 'paper' && computerSelection === 'rock')) {
         console.log("You Win!"), playerScore++;
